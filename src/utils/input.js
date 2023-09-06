@@ -1,9 +1,14 @@
 const readlineSync = require('readline-sync');
 const getModule = require('../commands/get.js');
 
-function getUserInput(question) {
-    const userInput = readlineSync.question(`${question}`).toLowerCase();
-    return userInput;
+function getUserInput(question, inputType) {
+    let userInput;
+    if (inputType === 'number') {
+        userInput = Number(readlineSync.question(`${question}`));
+    } else {
+        userInput = readlineSync.question(`${question}`);
+    }
+    return userInput ? userInput : getUserInput(question, inputType);
 }
 
 function getUserCommand() {
@@ -31,7 +36,20 @@ async function getBookIndex(message) {
     return getBookIndex(message)
 }
 
+async function getNewBook() {
+    let newBook = {
+        Title : getUserInput('What is the books title? '),
+        Author : getUserInput('Who is the books author? '),
+        Pages : getUserInput('What is the number of pages? ', 'number'),
+        Genre : getUserInput('What is the books genre? '),
+        Language : getUserInput('What language is the book written in? '),
+        Country : getUserInput('What country was the book published in? ')
+    };
+    return newBook;
+}
+
 module.exports = {
     getUserCommand,
-    getBookIndex
+    getBookIndex,
+    getNewBook
 }
