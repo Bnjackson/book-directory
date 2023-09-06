@@ -7,19 +7,19 @@ async function getBooks() {
         const response = await axios.get(`${apiUrl}/api/books`);
         return response.data;
     } catch (error) {
-        console.error(`Error getting books: ${error.message}`);
+        console.error(`Error calling API GET endpoint: ${error.message}`);
         throw error;
     }
 }
 
 async function outputBooks() {
     try {
-
+        const bookData = await getBooks();
+        console.table(bookData['books']);
     } catch (error) {
-        console.error(`Error getting outputting the books data: ${error.message}`);
+        console.error(`Error outputting the books data: ${error.message}`);
+        throw error;
     }
-    const bookData = await getBooks();
-    console.table(bookData['books directory']);
 }
 
 module.exports = {
