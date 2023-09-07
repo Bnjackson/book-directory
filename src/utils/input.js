@@ -38,10 +38,10 @@ async function getBookIndex(message) {
 
 async function getNewBook() {
     let newBook = {
-        Title : getUserInput('What is the books title? '),
-        Author : getUserInput('Who is the books author? '),
+        Title : getUserInput('What is the book\'s title? '),
+        Author : getUserInput('Who is the book\'s author? '),
         Pages : getUserInput('What is the number of pages? ', 'number'),
-        Genre : getUserInput('What is the books genre? '),
+        Genre : getUserInput('What is the book\'s genre? '),
         Language : getUserInput('What language is the book written in? '),
         Country : getUserInput('What country was the book published in? ')
     };
