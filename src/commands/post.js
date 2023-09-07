@@ -13,6 +13,7 @@ async function postBook() {
     const newBook = await inputModule.getNewBook();
     try {
         await axios.post(`${apiUrl}/api/books`, newBook, axiosConfig);
+        console.log('New book added successfully.');
     } catch (error) {
         console.error(`Error calling POST API endpoint ${error}`);
         throw error;

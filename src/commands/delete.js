@@ -7,6 +7,7 @@ async function deleteBook() {
     const indexToDelete = await inputModule.getBookIndex('What is the index of the book you want to delete from the directory? ');
     try {
         await axios.delete(`${apiUrl}/api/books/${indexToDelete}`);
+        console.log('Book deleted successfully.');
     } catch (error) {
         console.error(`Error calling the DELETE API endpoint: ${error.message}`);
         throw error;

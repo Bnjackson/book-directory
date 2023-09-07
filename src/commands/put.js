@@ -14,6 +14,7 @@ async function putBook() {
     const updatedBook = await inputModule.getNewBook();
     try {
         await axios.put(`${apiUrl}/api/books/${indexToUpdate}`, updatedBook, axiosConfig);
+        console.log('Book updated successfully');
     } catch (error) {
         console.error(`ERROR: Calling the PUT API endpoint?`);
         throw error;
