@@ -51,5 +51,6 @@ async function getNewBook() {
 module.exports = {
     getUserCommand,
     getBookIndex,
-    getNewBook
+    getNewBook,
+    getUserInput
 }
